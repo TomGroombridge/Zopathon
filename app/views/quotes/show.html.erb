@@ -1,0 +1,21 @@
+<%= form_for Loan.new do |f| %>
+	<%= f.label :total %>
+	<%= f.text_field :total, :value => @quote.loan_amount %>
+	<br>
+	<%= f.label :total_repayable %>
+	<%= f.text_field :total_repayable, :value => @quote.loan_amount %>
+	<br>
+	<%= f.label :monthly_repayments %>
+	<%= f.text_field :monthly_repayments, :value => @quote.loan_amount %>
+	<br>
+	<%= f.label :monthly_due_date %>
+	<%= f.text_field :monthly_due_date, :value => @quote.loan_amount %>
+	<br>
+	<%= f.label :apr %>
+	<%= f.text_field :apr, :value => @quote.loan_amount %>
+	<br>
+	<%= f.label :offer_apr %>
+	<%= f.text_field :offer_apr, :value => @quote.loan_amount %>
+	<br>
+	<%= f.submit %>
+<% end %>

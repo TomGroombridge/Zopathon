@@ -1,0 +1,12 @@
+<%= form_for @quote do |form| %>
+	<%= form.label :loan_amount %>
+	<%= form.text_field :loan_amount %>
+	<br>
+	<%= form.label :length_of_loan %>
+	<%= form.text_field :length_of_loan %> years
+	<br>
+	<%= form.label :apr %>
+	<%= form.text_field :apr, :value => @user.apr %>
+	<br>
+	<%= form.submit %>
+<% end %>
