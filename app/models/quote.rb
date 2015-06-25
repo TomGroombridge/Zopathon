@@ -13,11 +13,11 @@ class Quote < ActiveRecord::Base
 	end
 
 	def total_amount
-		9051
+		self.overall_amount * 1.079
 	end
 
 	def monthly_repayments
-		150.85
+		self.total_amount / self.month_amount
 	end
 
 	def due_date
