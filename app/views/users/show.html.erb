@@ -90,13 +90,3 @@
 <p>You have used up <%= @user.credit_limit_used %> out of your <%= @user.credit_limit %> credit limit</p>
 <p>click <%= link_to("here", new_quote_path)%> if you would like to borrow more</p>
 
-<h1>Loans</h1>
-<% @user.loans.each do |loan| %>
-	<%= number_to_currency(loan.total)%>
-	<br>
-	<%= number_to_currency(loan.total_repayable) %>
-	<br>
-	<%= number_to_currency(loan.monthly_repayments) %>
-	<br>
-	<%= link_to("View Loan in detail".html_safe, loan_path(loan))%>
-<% end %>
