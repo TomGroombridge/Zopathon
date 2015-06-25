@@ -5,6 +5,7 @@ class Loan < ActiveRecord::Base
 
 
 	def amount_left
+		# raise self.payments.inspect
 		if self.payments.empty? == true
 			self.total_repayable
 		else
