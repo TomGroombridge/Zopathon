@@ -13,11 +13,6 @@
   <%= link_to("Sign in".html_safe, new_user_session_path) %>
   <%= link_to("Sign up".html_safe, new_user_registration_path) %>
 <% end %>
-<div class="alert alert-danger" role="alert">
-  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-  <span class="sr-only">Error:</span>
-  Enter a valid email address
-</div>
 <%= yield %>
 
 </body>
