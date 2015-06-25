@@ -19,7 +19,10 @@
 	<%= number_to_currency(@quote.apr) %>
 	<%= f.hidden_field :apr, :value => @quote.apr %>
 	<br>
-
+	<%= f.label :months %>:
+	<%= @quote.month_amount%>
+	<%= f.hidden_field :apr, :value => @quote.month_amount %>
+	<br>
 	<%= f.label :offer_apr %>
 	<%= f.hidden_field :offer_apr, :value => nil %>
 	<br>

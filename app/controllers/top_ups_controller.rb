@@ -14,6 +14,11 @@ class TopUpsController < ApplicationController
 		end
 	end
 
+	def show
+		@top_up = TopUp.find(params[:id])
+		@loan = Loan.find(params[:loan_id])
+	end
+
 	private
 
 	def top_up_params

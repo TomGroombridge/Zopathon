@@ -40,4 +40,8 @@ class Loan < ActiveRecord::Base
 		end
 	end
 
+	def monthly_payments
+		self.overall_total / self.months
+	end
+
 end

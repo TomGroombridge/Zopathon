@@ -1,6 +1,6 @@
 <h1>Get Some More Cash</h1>
-<%= form_for [@loan, @top_up] do |form| %>
-	Borrow an extra £<%= form.text_field :amount %> @ <%= @loan.apr.to_s + '%' %>APR
+<%= form_for [@loan, @top_up], remote: true 	 do |form| %>
+	Borrow an extra £<%= form.text_field :amount %> @ <%= @loan.apr.to_s + '%' %>APR ontop of the outstanding <%= @loan.amount_left %>
 	<%= form.hidden_field :loan_id, :value => @loan.id %>
 	<br>
 	<%= form.submit %>
