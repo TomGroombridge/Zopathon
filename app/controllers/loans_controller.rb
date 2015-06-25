@@ -6,7 +6,7 @@ class LoansController < ApplicationController
 		@loan = Loan.new(loan_params)
 		@loan.update_attributes(:user_id => @user.id)
 		if @loan.save
-			render :show
+			redirect_to user_path(@user)
 	  else
 		  format.html { render action: 'new' }
 		end
