@@ -8,4 +8,8 @@
 	<%= number_to_currency(loan.total_repayable) %>
 	<br>
 	<%= number_to_currency(loan.monthly_repayments) %>
+	<br>
+	<% loan.payments.each do |payment| %>
+		<%= payment.amount %>
+	<% end %>
 <% end %>

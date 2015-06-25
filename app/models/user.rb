@@ -4,5 +4,9 @@ class User < ActiveRecord::Base
   has_many :loans
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  # validates_presence_of :first_name
+  # validates_presence_of :last_name
+  # validates_presence_of :mobile
+  # validates_presence_of :date_of_birth
 
 end
