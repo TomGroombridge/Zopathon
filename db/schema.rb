@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150625193040) do
+ActiveRecord::Schema.define(version: 20150625223100) do
 
   create_table "loans", force: :cascade do |t|
     t.decimal  "total"
@@ -40,6 +40,13 @@ ActiveRecord::Schema.define(version: 20150625193040) do
     t.decimal  "apr"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+  end
+
+  create_table "top_ups", force: :cascade do |t|
+    t.decimal  "amount"
+    t.integer  "loan_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
