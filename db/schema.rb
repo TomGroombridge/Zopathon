@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150625134657) do
+ActiveRecord::Schema.define(version: 20150625141355) do
 
   create_table "loans", force: :cascade do |t|
     t.decimal  "total"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20150625134657) do
     t.integer  "user_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.decimal  "apr"
+    t.decimal  "offer_apr"
   end
 
   create_table "payments", force: :cascade do |t|
@@ -49,6 +51,7 @@ ActiveRecord::Schema.define(version: 20150625134657) do
     t.string   "last_name"
     t.string   "mobile"
     t.datetime "date_of_birth"
+    t.decimal  "apr"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
