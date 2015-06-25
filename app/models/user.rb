@@ -20,6 +20,21 @@ class User < ActiveRecord::Base
   	self.amount_borrowed - self.credit_limit
   end
 
+  def left_to_pay
+  	loans = self.loans.map do |loan|
+  		loan.amount_paid
+  	end
+  	amount_paid = loans.inject{|sum, n| sum + n}
+  	amount_borrowed - amount_paid
+  end
+
+  def amount_paid
+  	loans = self.loans.map do |loan|
+  		loan.amount_paid
+  	end
+  	amount_paid = loans.inject{|sum, n| sum + n}
+  end
+
   def amount_left_to_borrow
   	self.credit_limit - self.amount_borrowed
   end
