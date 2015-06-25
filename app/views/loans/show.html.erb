@@ -43,7 +43,7 @@
 		<%= form_for [@loan, @payment] do |f| %>
 			<%= f.label "How much extra would you like to pay?" %>
 			<br>
-			<%= f.text_field :amount ,:class => "payment-text-box"%>
+			£<%= number_field :amount, @loan.total, min: @loan.total, max: current_user.amount_left_to_borrow, step: 10, :class => "payment-text-box"%>
 			<%= f.hidden_field :loan_id, :value => @loan.id %>
 			<br>
 			<%= f.submit %>
