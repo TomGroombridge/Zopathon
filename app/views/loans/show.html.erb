@@ -59,7 +59,7 @@
 				<%= form_for @loan, :url => { :action => "edit"} do |f| %>
 					<%= f.label "How much extra would you like to borrow?" %>
 					<br>
-					£<%= number_field :total, @loan.total, min: @loan.total, max: current_user.credit_limit, step: 10, :value => @loan.total %>
+					£<%= number_field :total, @loan.total, min: @loan.total, max: current_user.amount_left_to_borrow, step: 10, :value => @loan.total %>
 					<br>
 					<%= f.submit %>
 				<% end %>
@@ -68,6 +68,6 @@
   </div>
 </div>
 </div>
-<!-- Large modal -->
+
 
 

@@ -19,4 +19,9 @@ class User < ActiveRecord::Base
   def credit_limit_used
   	self.amount_borrowed - self.credit_limit
   end
+
+  def amount_left_to_borrow
+  	self.credit_limit - self.amount_borrowed
+  end
+
 end
