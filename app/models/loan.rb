@@ -6,15 +6,14 @@ class Loan < ActiveRecord::Base
 
 
 	def amount_left
-		# raise self.payments.inspect
 		if self.payments.empty? == true
-			self.total_repayable
+			self.overall_total
 		else
 			@amount = self.payments.map do |p|
 				p.amount
 			end
 			@amount = @amount.inject { |sum, n| sum + n }
-			self.total_repayable - @amount
+			self.overall_total - @amount
 		end
 	end
 
@@ -28,4 +27,17 @@ class Loan < ActiveRecord::Base
 			@amount = @amount.inject { |sum, n| sum + n }
 		end
 	end
+
+	def overall_total
+		unless self.top_ups.empty? == true
+			@amount = self.top_ups.map do |n|
+				n.amount
+			end
+			@amount = @amount.inject { |sum, n| sum + n }
+			self.total_repayable + @amount
+		else
+			self.total_repayable
+		end
+	end
+
 end

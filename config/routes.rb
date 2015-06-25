@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :quotes
   resources :loans do
     resources :payments
+    resources :top_ups
   end
 
 

@@ -3,7 +3,7 @@
 	<div class="standard-box">
 		<p>You owe a total of:</p>
 		<h2><%= number_to_currency(@loan.amount_left)%></h2>
-		<p>You have the option to increase the sie of this loan <%= link_to("Get Cash", edit_loan_path(@loan))%></p>
+		<p>You have the option to increase the sie of this loan <%= link_to("Get Cash", new_loan_top_up_path(@loan))%></p>
 		<div class="amount_paid_left">
 			<div style="display:inline-block; width: 49%; background:#3dfb92; height:100px">
 				<div style="display:table; width:100%; height:100%;">
@@ -49,24 +49,6 @@
 			<%= f.submit %>
 		<% end %>
 	</div>
-	<h1>Add Cash</h1>
-	<p>you are not using all of your credit limit, wish to add more?</p>
-	<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Yes Please</button>
-	<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="blue-box">
-				<%= form_for @loan, :url => { :action => "edit"} do |f| %>
-					<%= f.label "How much extra would you like to borrow?" %>
-					<br>
-					£<%= number_field :total, @loan.total, min: @loan.total, max: current_user.amount_left_to_borrow, step: 10, :value => @loan.total %>
-					<br>
-					<%= f.submit %>
-				<% end %>
-			</div>
-    </div>
-  </div>
-</div>
 </div>
 
 
