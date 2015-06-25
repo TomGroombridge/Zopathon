@@ -5,7 +5,9 @@ Rails.application.routes.draw do
 
   resources :users
   resources :quotes
-  resources :loans
+  resources :loans do
+    resources :payments
+  end
 
 
   # You can have the root of your site routed with "root"

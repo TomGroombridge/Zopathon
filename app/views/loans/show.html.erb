@@ -1,0 +1,51 @@
+<div class="loan-details">
+	<h1>Your loan details</h1>
+	<div class="standard-box">
+		<p>You owe a total of:</p>
+		<h2><%= number_to_currency(@loan.amount_left)%></h2>
+		<div class="amount_paid_left">
+			<div style="display:inline-block; width: 49%; background:#3dfb92; height:100px">
+				<div style="display:table; width:100%; height:100%;">
+					<p style="  vertical-align: middle; height: 100%; display: table-cell; text-align: center;"><%= number_to_currency(@loan.amount_paid)%> - Paid</p>
+				</div>
+			</div>
+			<div style="display:inline-block; width: 49%; background:#ebebeb; height:100px">
+				<div style="display:table; width:100%; height:100%;">
+					<p style="  vertical-align: middle; height: 100%; display: table-cell; text-align: center;"><%= number_to_currency(@loan.amount_left)%> - Due</p>
+				</div>
+			</div>
+		</div>
+		<table class="loan-items">
+      <tbody>
+        <tr>
+          <th>Monthly repayments</th>
+          <td><%= number_to_currency(@loan.monthly_repayments )%></td>
+        </tr>
+        <tr>
+          <th>Total repayable</th>
+          <td><%= number_to_currency(@loan.total_repayable )%></td>
+        </tr>
+        <tr>
+          <th>Application date</th>
+          <td><%= @loan.created_at.strftime("%m/%d/%Y")%></td>
+        </tr>
+        <tr>
+          <th>APR</th>
+          <td><%= @loan.apr %>%</td>
+        </tr>
+      </tbody>
+    </table>
+	</div>
+	<h1>Make an over payment</h1>
+	<p>Making over payments will help to pay off your loan faster</p>
+	<div class="blue-box">
+		<%= form_for [@loan, @payment] do |f| %>
+			<%= f.label "How much extra would you like to pay?" %>
+			<br>
+			<%= f.text_field :amount ,:class => "payment-text-box"%>
+			<%= f.hidden_field :loan_id, :value => @loan.id %>
+			<br>
+			<%= f.submit %>
+		<% end %>
+	</div>
+</div>
