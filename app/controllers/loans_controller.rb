@@ -17,6 +17,10 @@ class LoansController < ApplicationController
 		@payment = Payment.new
 	end
 
+	def edit
+		@loan = Loan.find(params[:id])
+	end
+
 	private
 
 	def loan_params

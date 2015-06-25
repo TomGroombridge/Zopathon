@@ -9,4 +9,14 @@ class User < ActiveRecord::Base
   # validates_presence_of :mobile
   # validates_presence_of :date_of_birth
 
+  def amount_borrowed
+  	@total = self.loans.map do |loan|
+  		loan.total
+  	end
+  	@total = @total.inject { |sum, n| sum + n }
+ 	end
+
+  def credit_limit_used
+  	self.amount_borrowed - self.credit_limit
+  end
 end
