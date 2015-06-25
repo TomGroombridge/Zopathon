@@ -14,6 +14,7 @@ class LoansController < ApplicationController
 
 	def show
 		@loan = Loan.find(params[:id])
+		@payment = Payment.new
 	end
 
 	private

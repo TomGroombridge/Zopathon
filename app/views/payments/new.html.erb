@@ -1,0 +1,5 @@
+<%= form_for [@loan, @payment] do |f| %>
+	<%= f.text_field :amount %>
+	<%= f.hidden_field :loan_id, :value => @loan.id %>
+	<%= f.submit %>
+<% end %>
