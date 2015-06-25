@@ -1,1 +1,11 @@
-<%= @user.inspect %>
+<br>
+<%= @user.email %>
+<br>
+<h1>Loans</h1>
+<% @user.loans.each do |loan| %>
+	<%= number_to_currency(loan.total)%>
+	<br>
+	<%= number_to_currency(loan.total_repayable) %>
+	<br>
+	<%= number_to_currency(loan.monthly_repayments) %>
+<% end %>
