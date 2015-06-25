@@ -2,6 +2,7 @@ class Loan < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :quote
 	has_many :payments
+	has_many :top_ups
 
 
 	def amount_left
