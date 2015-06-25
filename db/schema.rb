@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150625141355) do
+ActiveRecord::Schema.define(version: 20150625143041) do
 
   create_table "loans", force: :cascade do |t|
     t.decimal  "total"
@@ -32,6 +32,14 @@ ActiveRecord::Schema.define(version: 20150625141355) do
     t.string   "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "quotes", force: :cascade do |t|
+    t.decimal  "loan_amount"
+    t.integer  "length_of_loan"
+    t.decimal  "apr"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "users", force: :cascade do |t|
