@@ -11,9 +11,6 @@ Loan.create!([
   {total: "1000.0", total_repayable: "1079.0", monthly_repayments: "44.9583333333333", monthly_due_date: "2015-06-26 01:29:44", user_id: 1, apr: "7.9", offer_apr: nil, months: 12},
   {total: "1000.0", total_repayable: "1079.0", monthly_repayments: "44.9583333333333", monthly_due_date: "2015-06-26 01:41:43", user_id: 1, apr: "7.9", offer_apr: nil, months: 24},
   {total: "15000.0", total_repayable: "16185.0", monthly_repayments: "449.583333333333", monthly_due_date: "2015-06-26 06:46:44", user_id: 1, apr: "7.9", offer_apr: nil, months: 36},
-  {total: "1000.0", total_repayable: "2000.0", monthly_repayments: "1212.0", monthly_due_date: nil, user_id: 1, apr: "12.0", offer_apr: "12.0", months: nil},
-  {total: "10000.0", total_repayable: "9051.0", monthly_repayments: "150.85", monthly_due_date: "2015-06-25 20:19:43", user_id: 1, apr: "7.9", offer_apr: nil, months: nil},
-  {total: "10000.0", total_repayable: "9051.0", monthly_repayments: "150.85", monthly_due_date: "2015-06-25 20:19:43", user_id: 1, apr: "7.9", offer_apr: nil, months: nil}
 ])
 Payment.create!([
   {loan_id: 2, amount: "1.0", date: nil, status: nil},
