@@ -1,5 +1,4 @@
-<% if @payment.errors.any? %>
-	raise error
-<% else %>
-  $(".partial").html("<%= escape_javascript(render 'loans/loan_details') %>"
-<% end %>
+$(".partial-<%= @payment.loan.id %>").html("<%= escape_javascript(render 'loans/loan_details') %>")
+window.location.reload();
+
+

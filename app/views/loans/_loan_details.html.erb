@@ -33,4 +33,7 @@
       </tr>
     </tbody>
   </table>
+  <% if flash[:notice] %>
+    <div class="ui green message" id="notice" style="margin-bottom:0px;"><%= notice %></div>
+  <% end %>
 </div>

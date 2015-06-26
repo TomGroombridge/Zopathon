@@ -1,6 +1,6 @@
 <div class="loan-details">
 	<h1>Your loan details</h1>
-	<div class="partial">
+	<div class="partial-<%=@loan.id%>">
 		<%= render "loan_details" %>
 	</div>
 	<h1>Make an over payment</h1>
@@ -12,7 +12,8 @@
 			£<%= f.number_field :amount, min: 1, max: 100, :class => "payment-text-box"%>
 			<%= f.hidden_field :loan_id, :value => @loan.id %>
 			<br>
-			<%= f.submit %>
+			<%= f.submit'Save', data: {confirm: "Are you sure?"} %>
+
 		<% end %>
 	</div>
 	<h1>Add cash to loan</h1>
