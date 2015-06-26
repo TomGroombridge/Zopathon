@@ -3,10 +3,6 @@
   *= require_tree
 */
 
-.loan-details{
-	width: 700px!important;
-	margin: auto!important;
-
 	.standard-box{
 		border: .625em solid #f3f1e6;
 		margin-bottom: .625em;
@@ -17,6 +13,10 @@
 
 	  }
 	}
+.loan-details{
+	width: 700px!important;
+	margin: auto!important;
+
 }
 
 .loan-items{
@@ -52,4 +52,54 @@
 		font-weight: 400;
 		width: 50%;
   }
+}
+
+
+
+
+.calender{
+	width:100%;
+	height: 100px;
+	margin-bottom: 40px;
+	margin-top: 40px;
+	.month{
+		width: 18.9%;
+	  display: inline-block;
+	  border: 1px solid black;
+	  height: 100%;
+	  background-color: red;
+	  transform: rotate(-10deg);
+	  border-radius: 5px;
+	  box-shadow: rgba(0,0,0,0.2) 8px 9px 12px, inset rgba(0,0,0,0.2) 0px 0px 5px;
+	  .page-header-calender{
+	  	text-align: center;
+			margin: 0px;
+		  height: 22%;
+		  font-size: 20px;
+		  color: white;
+	  }
+	  .page{
+	  	width: 100%;
+	  	margin: auto;
+	  	background-color: white;
+	  	height: 78%;
+		  position: relative;
+	  }
+	  .tick{
+	  	width: 68%;
+		  height: 80%;
+		  background-color: #2bfd8e;
+		  margin: auto;
+		  top: 8px;
+		  position: relative;
+		  border-radius: 100%;
+		  p{
+		  	text-align: center;
+			  top: 20px;
+			  position: relative;
+			  display: table;
+			  width: 100%;
+		  }
+	  }
+	}
 }
