@@ -1,5 +1,5 @@
 <div class="standard-box" style="width:700px; margin:auto">
-	<p>You have <%=number_to_currency(current_user.left_to_pay)%> left to pay!</p>
+	<p>You have <%=number_to_currency(current_user.left_to_pay, :unit => "£")%> left to pay!</p>
 	<div class="amount_paid_left" style="width:50%; margin:auto;">
 		<%= form_for @quote do |form| %>
 			<%= form.label :loan_amount %>
