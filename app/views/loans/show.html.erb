@@ -13,6 +13,7 @@
 			<%= f.hidden_field :loan_id, :value => @loan.id %>
 			<br>
 			<%= f.submit %>
+		<% end %>	
 			<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-modal-lg">Alternative Payment Method</button>
 
 			<div class="modal fade bs-modal-lg" style="background-color:#d4ecf9" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
@@ -28,7 +29,7 @@
 			    </div>
 			  </div>
 			</div>
-		<% end %>
+		
 	</div>
 	<h1>Add cash to loan</h1>
 	<div class="blue-box">
