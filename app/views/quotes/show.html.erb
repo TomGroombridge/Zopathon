@@ -1,30 +1,23 @@
-<%= form_for Loan.new do |f| %>
-	<%= f.label :total %>:
-	<%= number_to_currency(@quote.loan_amount) %>
-	<%= f.hidden_field :total, :value => @quote.loan_amount %>
-	<br>
-	<%= f.label :total_repayable %>:
-	<%= number_to_currency(@quote.total_amount) %>
-	<%= f.hidden_field :total_repayable, :value => @quote.total_amount %>
-	<br>
-	<%= f.label :monthly_repayments %>:
-	<%= number_to_currency(@quote.monthly_repayments) %>
-	<%= f.hidden_field :monthly_repayments, :value => @quote.monthly_repayments %>
-	<br>
-	<%= f.label :monthly_due_date %>:
-	<%= @quote.due_date.strftime("%d") %>th of every month
-	<%= f.hidden_field :monthly_due_date, :value => @quote.due_date %>
-	<br>
-	<%= f.label :apr %>:
-	<%= number_to_currency(@quote.apr) %>
-	<%= f.hidden_field :apr, :value => @quote.apr %>
-	<br>
-	<%= f.label :months %>:
-	<%= @quote.month_amount%>
-	<%= f.hidden_field :apr, :value => @quote.month_amount %>
-	<br>
-	<%= f.label :offer_apr %>
-	<%= f.hidden_field :offer_apr, :value => nil %>
-	<br>
-	<%= f.submit %>
-<% end %>
+<div class="standard-box" style="width:700px; margin:auto">
+	<p>You have <%=number_to_currency(current_user.left_to_pay)%> left to pay!</p>
+	<div class="amount_paid_left" style="width:50%; margin:auto;">
+		<%= form_for Loan.new do |f| %>
+			<p>Loan Total:<%= number_to_currency(@quote.loan_amount)%></p>
+			<%= f.hidden_field :total, :value => @quote.loan_amount %>
+			<p>Total Repayable:<%= number_to_currency(@quote.total_amount) %></p>
+			<%= f.hidden_field :total_repayable, :value => @quote.total_amount %>
+			<p>Monthly Repayments:<%= number_to_currency(@quote.monthly_repayments) %></p>
+			<%= f.hidden_field :monthly_repayments, :value => @quote.monthly_repayments %>
+			<p>Due on the: <%= @quote.due_date.strftime("%d") %>th of every month</p>
+			<%= f.hidden_field :monthly_due_date, :value => @quote.due_date %>
+			<p><%= @quote.apr %>% APR</p>
+			<%= f.hidden_field :apr, :value => @quote.apr %>
+			<p>Terms: <%= @quote.month_amount%> Months</p>
+			<%= f.hidden_field :months, :value => @quote.month_amount %>
+			<%= f.label :offer_apr %>
+			<%= f.hidden_field :offer_apr, :value => nil %>
+			<br>
+			<%= f.submit "I agree to the terms of this Loan" %>
+		<% end %>
+	</div>
+</div>

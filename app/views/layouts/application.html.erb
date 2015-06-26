@@ -16,6 +16,7 @@
   <% if signed_in? %>
   	<li role="presentation"><%= link_to("Dashboard".html_safe, user_path(current_user))%></li>
   	<li role="presentation"><%= link_to("Log out".html_safe, destroy_user_session_path, :method => :delete) %></li>
+    <li role="presentation" style="float:right"><%= link_to("New Loan", new_quote_path)%></li>
 	<% else %>
 	  <li role="presentation"><%= link_to("Sign in".html_safe, new_user_session_path) %></li>
 	  <li role="presentation"><%= link_to("Sign up".html_safe, new_user_registration_path) %></li>

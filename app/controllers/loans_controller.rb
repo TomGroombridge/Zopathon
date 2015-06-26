@@ -25,7 +25,7 @@ class LoansController < ApplicationController
 	private
 
 	def loan_params
-		params.require(:loan).permit(:total, :total_repayable, :monthly_repayments, :monthly_due_date, :apr, :offer_apr, :user_id, :month_amount)
+		params.require(:loan).permit(:total, :total_repayable, :monthly_repayments, :monthly_due_date, :apr, :offer_apr, :user_id, :months)
 	end
 
 
