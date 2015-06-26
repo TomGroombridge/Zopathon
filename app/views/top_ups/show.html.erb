@@ -1,1 +1,39 @@
-You're loan will consist of monthly payments of <%= number_to_currency(@top_up.loan.monthly_payments )%>
+
+<div class="standard-box" style="width:700px; margin:auto">
+	<p>Adding <%= number_to_currency(@top_up.amount) %> Will make your loan repayments as followed %></p>
+	<p>You owe a total of:</p>
+	<h2><%= number_to_currency(@top_up.loan.amount_left)%></h2>
+	<div class="amount_paid_left">
+		<div style="display:inline-block; width: 49%; background:#3dfb92; height:100px">
+			<div style="display:table; width:100%; height:100%;">
+				<p style="  vertical-align: middle; height: 100%; display: table-cell; text-align: center;"><%= number_to_currency(@top_up.loan.amount_paid)%> - Paid</p>
+			</div>
+		</div>
+		<div style="display:inline-block; width: 49%; background:#ebebeb; height:100px">
+			<div style="display:table; width:100%; height:100%;">
+				<p style="  vertical-align: middle; height: 100%; display: table-cell; text-align: center;"><%= number_to_currency(@top_up.loan.amount_left)%> - Due</p>
+			</div>
+		</div>
+	</div>
+	<table class="loan-items" style="margin:auto; margin-top:10px;">
+    <tbody>
+      <tr>
+        <th>Monthly repayments</th>
+        <td><%= number_to_currency(@top_up.loan.monthly_payments )%></td>
+      </tr>
+      <tr>
+        <th>Total repayable</th>
+        <td><%= number_to_currency(@top_up.loan.total_repayable )%></td>
+      </tr>
+      <tr>
+        <th>Application date</th>
+        <td><%= @top_up.loan.created_at.strftime("%m/%d/%Y")%></td>
+      </tr>
+      <tr>
+        <th>APR</th>
+        <td><%= @top_up.loan.apr %>%</td>
+      </tr>
+    </tbody>
+  </table>
+  <%= link_to "Accept new loan rates!", loan_path(@top_up.loan) ,:class => "btn btn-primary", :style => "margin: auto; display: block; margin-top: 20px; width:30%"%>
+</div>
