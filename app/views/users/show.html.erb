@@ -66,16 +66,16 @@ Rewards</button>
 <div class="loan-details">
 	<h1>Borrowing Debts(All Loans)</h1>
 	<div class="standard-box">
-		<p>You have <%=number_to_currency(current_user.left_to_pay)%> left to pay!</p>
+		<p>You have <%=number_to_currency(current_user.left_to_pay, :unit => "£")%> left to pay!</p>
 		<div class="amount_paid_left">
 			<div style="display:inline-block; width: 49%; background:#3dfb92; height:100px">
 				<div style="display:table; width:100%; height:100%;">
-					<p style="vertical-align:middle; height:100%; display:table-cell; text-align:center;"><%= number_to_currency(current_user.amount_paid)%> - Paid</p>
+					<p style="vertical-align:middle; height:100%; display:table-cell; text-align:center;"><%= number_to_currency(current_user.amount_paid, :unit => "£")%> - Paid</p>
 				</div>
 			</div>
 			<div style="display:inline-block; width: 49%; background:#ebebeb; height:100px">
 				<div style="display:table; width:100%; height:100%;">
-					<p style="  vertical-align: middle; height: 100%; display: table-cell; text-align: center;"><%=number_to_currency(current_user.left_to_pay)%> - Due</p>
+					<p style="  vertical-align: middle; height: 100%; display: table-cell; text-align: center;"><%=number_to_currency(current_user.left_to_pay, :unit => "£")%> - Due</p>
 				</div>
 			</div>
 		</div>
@@ -102,30 +102,29 @@ Rewards</button>
 	  	<h3><%= loan.id %></h3>
 	  	<div>
 	  		<div class="standard-box">
-					<p>You owe a total of:</p>
-					<h2><%= number_to_currency(loan.amount_left)%></h2>
-					<p>You have the option to increase the sie of this loan <%= link_to("Get Cash", edit_loan_path(loan))%></p>
-					<div class="amount_paid_left">
-						<div style="display:inline-block; width: 49%; background:#3dfb92; height:100px">
-							<div style="display:table; width:100%; height:100%;">
-								<p style="  vertical-align: middle; height: 100%; display: table-cell; text-align: center;"><%= number_to_currency(loan.amount_paid)%> - Paid</p>
-							</div>
-						</div>
-						<div style="display:inline-block; width: 49%; background:#ebebeb; height:100px">
-							<div style="display:table; width:100%; height:100%;">
-								<p style="  vertical-align: middle; height: 100%; display: table-cell; text-align: center;"><%= number_to_currency(loan.amount_left)%> - Due</p>
-							</div>
+				<p>You owe a total of:</p>
+				<h2><%= number_to_currency(loan.amount_left, :unit => "£")%></h2>
+				<div class="amount_paid_left">
+					<div style="display:inline-block; width: 49%; background:#3dfb92; height:100px">
+						<div style="display:table; width:100%; height:100%;">
+							<p style="  vertical-align: middle; height: 100%; display: table-cell; text-align: center;"><%= number_to_currency(loan.amount_paid, :unit => "£")%> - Paid</p>
 						</div>
 					</div>
+					<div style="display:inline-block; width: 49%; background:#ebebeb; height:100px">
+						<div style="display:table; width:100%; height:100%;">
+							<p style="  vertical-align: middle; height: 100%; display: table-cell; text-align: center;"><%= number_to_currency(loan.amount_left, :unit => "£")%> - Due</p>
+						</div>
+					</div>
+				</div>
 					<table class="loan-items" style="margin:auto; margin-top:10px;">
 			      <tbody>
 			        <tr>
 			          <th>Monthly repayments</th>
-			          <td><%= number_to_currency(loan.monthly_payments )%></td>
+			          <td><%= number_to_currency(loan.monthly_payments, :unit => "£")%></td>
 			        </tr>
 			        <tr>
 			          <th>Total repayable</th>
-			          <td><%= number_to_currency(loan.total_repayable )%></td>
+			          <td><%= number_to_currency(loan.total_repayable, :unit => "£")%></td>
 			        </tr>
 			        <tr>
 			          <th>Application date</th>

@@ -1,12 +1,12 @@
 <div class="standard-box" style="width:700px; margin:auto">
-	<p>You have <%=number_to_currency(current_user.left_to_pay)%> left to pay!</p>
+	<p>You have <%=number_to_currency(current_user.left_to_pay, :unit => "£")%> left to pay!</p>
 	<div class="amount_paid_left" style="width:50%; margin:auto;">
 		<%= form_for Loan.new do |f| %>
-			<p>Loan Total:<%= number_to_currency(@quote.loan_amount)%></p>
+			<p>Loan Total:<%= number_to_currency(@quote.loan_amount, :unit => "£")%></p>
 			<%= f.hidden_field :total, :value => @quote.loan_amount %>
-			<p>Total Repayable:<%= number_to_currency(@quote.total_amount) %></p>
+			<p>Total Repayable:<%= number_to_currency(@quote.total_amount, :unit => "£") %></p>
 			<%= f.hidden_field :total_repayable, :value => @quote.total_amount %>
-			<p>Monthly Repayments:<%= number_to_currency(@quote.monthly_repayments) %></p>
+			<p>Monthly Repayments:<%= number_to_currency(@quote.monthly_repayments, :unit => "£") %></p>
 			<%= f.hidden_field :monthly_repayments, :value => @quote.monthly_repayments %>
 			<p>Due on the: <%= @quote.due_date.strftime("%d") %>th of every month</p>
 			<%= f.hidden_field :monthly_due_date, :value => @quote.due_date %>

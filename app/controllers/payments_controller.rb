@@ -8,10 +8,14 @@ class PaymentsController < ApplicationController
 	def create
 		@payment = Payment.new(payment_params)
 		if @payment.save
-			render :show
+			respond_to do |format|
+	      format.js {@loan = @payment.loan}
+	    end
+	    flash[:notice] = 'The Payment has been sent and your monthly repayments have been adjusted accordingly, please be advised this may take up to 4 working days for the payment to be applied to your account.'
 	  else
 		  format.html { render action: 'new' }
 		end
+
 	end
 
 	def show
