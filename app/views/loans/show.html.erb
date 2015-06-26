@@ -12,8 +12,24 @@
 			£<%= f.number_field :amount, min: 1, max: 100, :class => "payment-text-box"%>
 			<%= f.hidden_field :loan_id, :value => @loan.id %>
 			<br>
+
 			<%= f.submit'Save', data: {confirm: "Are you sure?"} %>
 
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-modal-lg">Alternative Payment Method</button>
+
+			<div class="modal fade bs-modal-lg" style="background-color:#d4ecf9" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">
+			    	<p>You can make a lump sum payment or an early settlement figure via bank transfer, by using the following details: </p>
+
+			     	<p style="margin-bottom:0px">Username: This can be found on your dashboards (view details)</p>
+			     	<p style="margin-bottom:0px">Sort Code: 16-00-30</p>
+			     	<p style="margin-top:0px">Account Number: 10212463</p>
+
+			     	<p>Please be advised that this process may take up to 3 working days for the funds to be applied to your account.</p>
+			    </div>
+			  </div>
+			</div>
 		<% end %>
 	</div>
 	<h1>Add cash to loan</h1>
