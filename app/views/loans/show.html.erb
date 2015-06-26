@@ -14,8 +14,12 @@
 			<br>
 
 			<%= f.submit'Save', data: {confirm: "Are you sure?"} %>
-
 			<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-modal-lg">Alternative Payment Method</button>
+			<% if flash[:notice] %>
+		    <div class="alert" role="alert">
+		      <%= notice %>
+		    </div>
+		  <% end %>
 
 			<div class="modal fade bs-modal-lg" style="background-color:#d4ecf9" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
 			  <div class="modal-dialog modal-lg">
