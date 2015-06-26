@@ -33,10 +33,11 @@ class Loan < ActiveRecord::Base
 			@amount = self.top_ups.map do |n|
 				n.amount
 			end
+
 			@amount = @amount.inject { |sum, n| sum + n }
-			self.total_repayable + @amount
+			overall = (self.total_repayable + @amount) - self.amount_paid
 		else
-			self.total_repayable
+			self.total_repayable - self.amount_paid
 		end
 	end
 
